@@ -1,0 +1,1628 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TiC Foundation | Insights, Stories & Community Updates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary-blue: #0ea5e9;
+            --sky-blue: #38bdf8;
+            --light-blue: #7dd3fc;
+            --blue-50: #f0f9ff;
+            --blue-100: #e0f2fe;
+            --blue-900: #0c4a6e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
+            position: relative;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.2s; }
+        .stagger-2 { animation-delay: 0.4s; }
+        .stagger-3 { animation-delay: 0.6s; }
+        .stagger-4 { animation-delay: 0.8s; }
+        .stagger-5 { animation-delay: 1.0s; }
+        .stagger-6 { animation-delay: 1.2s; }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--sky-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+        
+        .nav-link:hover {
+            background: var(--blue-50);
+            color: var(--primary-blue);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .nav-link.active {
+            background: var(--blue-50);
+            color: var(--primary-blue);
+        }
+        
+        .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.2);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+        }
+        
+        /* Blog-specific styles */
+        .blog-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+        
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(56, 189, 248, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+        
+        .blog-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .category-tech {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .category-community {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .category-success {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .category-insights {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+        
+        .category-news {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        
+        .blog-date {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        
+        .blog-date .day {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        .blog-date .month {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .featured-post {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(56, 189, 248, 0.05));
+            border: 2px solid rgba(14, 165, 233, 0.2);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 20;
+        }
+        
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .read-time {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: 2px solid rgba(14, 165, 233, 0.2);
+            border-radius: 2rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 1.25rem;
+        }
+        
+        .filter-tag {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .filter-tag.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .filter-tag:not(.active) {
+            background: white;
+            color: var(--primary-blue);
+            border-color: rgba(14, 165, 233, 0.2);
+        }
+        
+        .filter-tag:not(.active):hover {
+            background: var(--blue-50);
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8zm0-20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        .blog-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-modal.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .pagination button {
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(14, 165, 233, 0.2);
+            background: white;
+            color: var(--primary-blue);
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: var(--blue-50);
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .pagination button.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            color: white;
+            border-color: transparent;
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 4rem 0;
+            }
+            .hero-gradient {
+                background-attachment: scroll;
+            }
+            .modal-content {
+                padding: 2rem;
+            }
+            .blog-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 nav-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <!-- <div class="flex items-center slide-in-left">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="relative">
+                            <div class="w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-white font-bold text-xl">T</span>
+                            </div>
+                            <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl pulse-ring"></div>
+                        </div>
+                        <div class="ml-4">
+                            <span class="text-2xl font-bold gradient-text">TiC Foundation</span>
+                            <div class="text-xs text-gray-500 font-medium">Transforming Communities</div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="flex flex-shrink-0 p-2 w-fit h-fit  items-center justify-center">
+                    <img src="logo.png" alt="" class="w-50 h-10">
+                    
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block slide-in-right">
+                    <div class="ml-10 flex items-baseline space-x-2">
+                        <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Home</a>
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">About</a>
+                        <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Programs</a>
+                        <a href="success.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Success Stories</a>
+                        <a href="blog.html" class="nav-link active text-gray-700 hover:text-blue-600 text-sm font-semibold">Blog</a>
+                        <a href="events.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Events</a>
+                        <a href="gallery.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Gallery</a>
+                    </div>
+                </div>
+                
+                <!--  Button -->
+                <div class="hidden md:block slide-in-right stagger-1">
+                    <button class="btn-primary text-white px-8 py-3 rounded-full text-sm font-semibold relative z-10">
+                        <i class="fas fa-heart mr-2"></i>
+                        Support Our Cause
+                    </button>
+                </div>
+                
+                <!-- Mobil menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-blue-50 transition-all">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu fixed top-20 right-0 w-full h-screen z-40 md:hidden">
+            <div class="px-6 pt-8 pb-6 space-y-6">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">About</a>
+                <a href="programs.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Programs</a>
+                <a href="success.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibbold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Success Stories</a>
+                <a href="blog.html" class="block text-blue-600 bg-blue-50 text-lg font-semibold py-3 px-4 rounded-lg">Blog</a>
+                <a href="events.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Events</a>
+                <a href="gallery.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Gallery</a>
+                <button class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold w-full mt-6 relative z-10">
+                    <i class="fas fa-heart mr-2"></i>
+                    Support Our Cause
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 right-20 w-72 h-72 bg-white/10 rounded-full floating-animation"></div>
+            <div class="absolute bottom-20 left-20 w-96 h-96 bg-white/5 rounded-full floating-delayed"></div>
+            <div class="absolute top-1/2 left-1/4 w-4 h-4 bg-white/30 rounded-full floating-animation"></div>
+            <div class="absolute top-1/3 right-1/3 w-6 h-6 bg-white/20 rounded-full floating-delayed"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center text-white">
+                <div class="mb-6 fade-in-up">
+                    <span class="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold">
+                        📝 Latest Insights
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 fade-in-up stagger-1">
+                    Our
+                    <span class="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                        Blog
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed fade-in-up stagger-2 max-w-4xl mx-auto">
+                    Discover stories of transformation, insights from our community, and the latest updates on our mission to empower the next generation of innovators.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="search-container fade-in-up stagger-3">
+                    <div class="relative">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="blog-search" class="search-input text-black" placeholder="Search articles, topics, or authors...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave divider -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up">Explore by Category</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto fade-in-up stagger-1">
+                    Find the content that interests you most, from technical insights to community success stories.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 fade-in-up stagger-2">
+                <button class="filter-tag active" data-category="all">All Posts</button>
+                <button class="filter-tag" data-category="tech">Technology</button>
+                <button class="filter-tag" data-category="community">Community</button>
+                <button class="filter-tag" data-category="success">Success Stories</button>
+                <button class="filter-tag" data-category="insights">Insights</button>
+                <button class="filter-tag" data-category="news">News & Updates</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-sky-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 fade-in-up">
+                    Featured Article
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 fade-in-up stagger-1">
+                    Editor's
+                    <span class="gradient-text">Pick</span>
+                </h2>
+            </div>
+            
+            <div class="featured-post glass-card rounded-3xl overflow-hidden fade-in-up stagger-2 relative">
+                <div class="featured-badge">
+                    <i class="fas fa-star mr-2"></i>
+                    Featured
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-rocket text-8xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="category-tech">Technology</span>
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                8 min read
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                            How AI is Transforming Rural Communities: A Deep Dive
+                        </h3>
+                        
+                        <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                            Explore how artificial intelligence and machine learning technologies are being deployed to solve real-world problems in underserved communities, creating opportunities and driving sustainable development.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="author-avatar">
+                                    BA
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Mr. Bill Agha</div>
+                                    <div class="text-sm text-gray-500">Dec 15, 2024</div>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-all flex items-center">
+                                Read Article
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Grid -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 fade-in-up">
+                    Latest
+                    <span class="gradient-text">Articles</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in-up stagger-1">
+                    Stay updated with our latest insights, community stories, and program updates.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up" data-category="community" data-post="community-impact">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="blog-category category-community">Community</div>
+                        <div class="blog-date">
+                            <div class="day">12</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-users text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                5 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Community Impact</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            Building Stronger Communities Through Technology Education
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Discover how our community-driven approach to tech education is creating lasting change and empowering local leaders.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    STE
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">Soh Tala Eric</div>
+                                    <div class="text-xs text-gray-500">Community Manager</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">24</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up stagger-1" data-category="tech" data-post="ai-future">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="blog-category category-tech">Technology</div>
+                        <div class="blog-date">
+                            <div class="day">10</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-robot text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                12 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Deep Dive</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            The Future of AI in Social Impact: Opportunities and Challenges
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            An in-depth analysis of how artificial intelligence can be leveraged for social good while addressing ethical considerations.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    RK
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">Dr. Robert Kom</div>
+                                    <div class="text-xs text-gray-500">Tech Director</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">42</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">15</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up stagger-2" data-category="success" data-post="graduate-success">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="blog-category category-success">Success Story</div>
+                        <div class="blog-date">
+                            <div class="day">08</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-trophy text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                6 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Inspiring</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            From Bootcamp to Tech Shanelle's Journey to Success
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Follow Alex's inspiring transformation from a complete beginner to leading a development team at a major tech company.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    NS
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">Njiting Shanells</div>
+                                    <div class="text-xs text-gray-500">Program Graduate</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">67</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">23</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up stagger-3" data-category="insights" data-post="education-trends">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <div class="blog-category category-insights">Insights</div>
+                        <div class="blog-date">
+                            <div class="day">05</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                9 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Analysis</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            2024 Tech Education Trends: What We've Learned This Year
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            A comprehensive look at the emerging trends in technology education and their impact on career outcomes.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    KM
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">King Mark</div>
+                                    <div class="text-xs text-gray-500">Education Lead</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">38</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up stagger-4" data-category="news" data-post="partnership-announcement">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="blog-category category-news">News</div>
+                        <div class="blog-date">
+                            <div class="day">03</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-handshake text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                4 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Announcement</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            Major Partnership with Global Tech Companies Announced
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            We're excited to announce new partnerships that will expand our reach and provide more opportunities for our community.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    TF
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">TiC Foundation</div>
+                                    <div class="text-xs text-gray-500">Official</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">89</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">34</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card glass-card rounded-3xl overflow-hidden fade-in-up stagger-5" data-category="community" data-post="volunteer-spotlight">
+                    <div class="blog-image" style="background-image: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                        <div class="blog-category category-community">Community</div>
+                        <div class="blog-date">
+                            <div class="day">01</div>
+                            <div class="month">Dec</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-heart text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="read-time">
+                                <i class="fas fa-clock mr-1"></i>
+                                7 min read
+                            </span>
+                            <span class="text-gray-400">•</span>
+                            <span class="text-sm text-gray-500">Spotlight</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                            Volunteer Spotlight: Meet the Heroes Behind Our Success
+                        </h3>
+                        
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Get to know the amazing volunteers who dedicate their time and expertise to make our programs possible.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="author-avatar text-sm">
+                                    E
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900 text-sm">Emilly</div>
+                                    <div class="text-xs text-gray-500">Volunteer Coordinator</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <i class="fas fa-heart text-sm"></i>
+                                <span class="text-sm">56</span>
+                                <i class="fas fa-comment text-sm ml-2"></i>
+                                <span class="text-sm">19</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination fade-in-up stagger-6">
+                <button disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>...</button>
+                <button>8</button>
+                <button>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter-section py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
+            <div class="max-w-3xl mx-auto fade-in-up">
+                <div class="mb-6">
+                    <i class="fas fa-envelope text-6xl text-white/80"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Stay in the Loop
+                </h2>
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    Subscribe to our newsletter and never miss an update. Get the latest articles, program announcements, and community stories delivered to your inbox.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email address" class="flex-1 px-6 py-4 rounded-full text-gray-900 font-medium focus:outline-none focus:ring-4 focus:ring-white/30">
+                    <button class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </div>
+                
+                <p class="text-sm text-white/70 mt-4">
+                    Join 2,500+ subscribers. Unsubscribe anytime.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div id="blog-modal" class="blog-modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-3xl font-bold text-gray-900" id="modal-title">Article Title</h3>
+                <button id="close-blog-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="modal-blog-content">
+                <!-- Blog content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Enhanced Logo and Description -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-xl">TiC</span>
+                        </div>
+                        <div class="ml-4">
+                            <span class="text-2xl font-bold">Foundation</span>
+                            <div class="text-sm text-gray-400">Transforming Communities</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                        Empowering the next generation of innovators and changemakers through technology, entrepreneurship, and community-driven solutions. Together, we're building a brighter future.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-500 transition-all duration-300">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all duration-300">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-700 transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>About Us</a></li>
+                        <li><a href="#programs" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Programs</a></li>
+                        <li><a href="#stories" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Success Stories</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Events</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Get in Touch</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-envelope text-blue-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Email</div>
+                                <div class="text-sm">info@ticfoundation.org</div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-phone text-green-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Phone</div>
+                                <div class="text-sm">+237 679-664-294</div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-map-marker-alt text-red-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Address</div>
+                                <div class="text-sm">TechniPole ENSPY, Yaounde, Cameroon</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-left">
+                        &copy; 2025 TiC Foundation. All rights reserved
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+        
+        // Blog filtering
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Remove active class from all tags
+                filterTags.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tag
+                tag.classList.add('active');
+                
+                const category = tag.getAttribute('data-category');
+                
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('blog-search');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const content = card.querySelector('p').textContent.toLowerCase();
+                const author = card.querySelector('.font-semibold').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm) || author.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        if (!card.querySelector('h3').textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        });
+        
+        // Blog modal functionality
+        const blogModal = document.getElementById('blog-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-blog-content');
+        const closeBlogModal = document.getElementById('close-blog-modal');
+        
+        
+        const blogContent = {
+            'community-impact': {
+                title: "Building Stronger Communities Through Technology Education",
+                author: "Soh Tala Eric",
+                date: "December 12, 2024",
+                readTime: "5 min read",
+                content: `
+                    <div class="prose max-w-none">
+                        <p class="text-lg text-gray-600 mb-6">Technology education isn't just about learning to code—it's about empowering communities to solve their own problems and create lasting change.</p>
+                        
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">The Community-First Approach</h3>
+                        <p class="text-gray-600 mb-6">Our programs are designed with community needs at the center. We don't just teach technology; we teach how to use technology to address real challenges that communities face every day.</p>
+                        
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Real Impact Stories</h3>
+                        <p class="text-gray-600 mb-6">From developing apps that connect local farmers with markets to creating websites for small businesses, our graduates are making tangible differences in their communities.</p>
+                        
+                        <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                            <h4 class="text-lg font-bold text-blue-900 mb-2">Key Outcomes</h4>
+                            <ul class="text-blue-800 space-y-2">
+                                <li>• 85% of graduates start tech-related projects in their communities</li>
+                                <li>• 60% increase in local digital literacy rates</li>
+                                <li>• 40+ community-driven tech solutions developed</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="text-gray-600">The future of technology education lies in its ability to strengthen communities from within, creating sustainable change that lasts long after the programs end.</p>
+                    </div>
+                `
+            }
+        };
+        
+        // Add click handlers to blog cards
+        document.querySelectorAll('[data-post]').forEach(card => {
+            card.addEventListener('click', () => {
+                const postId = card.getAttribute('data-post');
+                const post = blogContent[postId];
+                
+                if (post) {
+                    modalTitle.textContent = post.title;
+                    modalContent.innerHTML = `
+                        <div class="mb-6">
+                            <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                                <span>By ${post.author}</span>
+                                <span>•</span>
+                                <span>${post.date}</span>
+                                <span>•</span>
+                                <span>${post.readTime}</span>
+                            </div>
+                        </div>
+                        ${post.content}
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <button class="flex items-center gap-2 text-gray-600 hover:text-red-500 transition-colors">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Like this article</span>
+                                    </button>
+                                    <button class="flex items-center gap-2 text-gray-600 hover:text-blue-500 transition-colors">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm text-gray-500">Tags:</span>
+                                    <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Community</span>
+                                    <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">Education</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    blogModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    // For posts without detailed content
+                    const title = card.querySelector('h3').textContent;
+                    const author = card.querySelector('.font-semibold').textContent;
+                    modalTitle.textContent = title;
+                    modalContent.innerHTML = `
+                        <div class="text-center py-12">
+                            <i class="fas fa-file-alt text-6xl text-gray-300 mb-6"></i>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Full Article Coming Soon</h3>
+                            <p class="text-gray-600 mb-8">This article is being prepared by ${author}. Subscribe to our newsletter to be notified when it's published!</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all">
+                                    Subscribe for Updates
+                                </button>
+                                <button class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 transition-all" onclick="document.getElementById('blog-modal').classList.remove('active'); document.body.style.overflow = 'auto';">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    blogModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal handlers
+        closeBlogModal.addEventListener('click', () => {
+            blogModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        blogModal.addEventListener('click', (e) => {
+            if (e.target === blogModal) {
+                blogModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Pagination functionality
+        document.querySelectorAll('.pagination button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.disabled && !btn.classList.contains('active')) {
+                    document.querySelector('.pagination button.active').classList.remove('active');
+                    btn.classList.add('active');
+                    
+                    // Scroll to top of blog grid
+                    document.getElementById('blog-grid').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Newsletter subscription
+        document.querySelector('.newsletter-section button').addEventListener('click', () => {
+            const email = document.querySelector('.newsletter-section input').value;
+            if (email) {
+                alert('Thank you for subscribing! You\'ll receive our latest updates and articles.');
+                document.querySelector('.newsletter-section input').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+        
+        // Like and share functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('button')?.textContent.includes('Like')) {
+                const btn = e.target.closest('button');
+                const icon = btn.querySelector('i');
+                if (icon.classList.contains('fas')) {
+                    icon.classList.replace('fas', 'far');
+                    btn.classList.remove('text-red-500');
+                    btn.classList.add('text-gray-600');
+                } else {
+                    icon.classList.replace('far', 'fas');
+                    btn.classList.remove('text-gray-600');
+                    btn.classList.add('text-red-500');
+                }
+            }
+            
+            if (e.target.closest('button')?.textContent.includes('Share')) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: modalTitle.textContent,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Article link copied to clipboard!');
+                }
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-2xl');
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.classList.remove('shadow-2xl');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.style.animationPlayState = 'running';
+                    }
+                });
+            }, 100);
+        });
+        
+        // Enhanced button interactions
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Blog card hover effects
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && blogModal.classList.contains('active')) {
+                blogModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Featured post click handler
+        document.querySelector('.featured-post').addEventListener('click', () => {
+            modalTitle.textContent = "How AI is Transforming Rural Communities: A Deep Dive";
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                        <span>By Mr. Bill Agha</span>
+                        <span>•</span>
+                        <span>December 15, 2024</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-600 mb-6">Artificial intelligence is no longer just a buzzword in Silicon Valley—it's becoming a powerful tool for social change in rural communities around the world.</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">The Rural AI Revolution</h3>
+                    <p class="text-gray-600 mb-6">From precision agriculture to telemedicine, AI technologies are being adapted to address the unique challenges faced by rural communities. Our research shows that when properly implemented, these solutions can bridge the digital divide and create new economic opportunities.</p>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Case Studies in Action</h3>
+                    <p class="text-gray-600 mb-6">We've documented several successful implementations of AI in rural settings, including predictive crop monitoring systems that have increased yields by 30% and AI-powered diagnostic tools that have improved healthcare access for thousands of residents.</p>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <h4 class="text-lg font-bold text-blue-900 mb-2">Key Findings</h4>
+                        <ul class="text-blue-800 space-y-2">
+                            <li>• AI adoption in rural areas has grown 150% in the past two years</li>
+                            <li>• 70% of rural AI projects focus on agriculture and healthcare</li>
+                            <li>• Community-led initiatives show 3x higher success rates</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-gray-600">The future of rural development lies in the thoughtful integration of AI technologies that respect local knowledge while providing new tools for growth and sustainability.</p>
+                </div>
+            `;
+            blogModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    </script>
+</html>

@@ -1,0 +1,1509 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - TiC Foundation | Inspiring Transformations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --primary-blue: #0ea5e9;
+            --sky-blue: #38bdf8;
+            --light-blue: #7dd3fc;
+            --blue-50: #f0f9ff;
+            --blue-100: #e0f2fe;
+            --blue-900: #0c4a6e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
+            position: relative;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.2s; }
+        .stagger-2 { animation-delay: 0.4s; }
+        .stagger-3 { animation-delay: 0.6s; }
+        .stagger-4 { animation-delay: 0.8s; }
+        .stagger-5 { animation-delay: 1.0s; }
+        .stagger-6 { animation-delay: 1.2s; }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--sky-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+        
+        .nav-link:hover {
+            background: var(--blue-50);
+            color: var(--primary-blue);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .nav-link.active {
+            background: var(--blue-50);
+            color: var(--primary-blue);
+        }
+        
+        .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.2);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.4);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--sky-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+        }
+        
+        .story-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+        
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(56, 189, 248, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .story-card:hover::before {
+            opacity: 1;
+        }
+        
+        .story-avatar {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-avatar::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--sky-blue), var(--light-blue));
+            border-radius: 2rem;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .story-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            font-size: 8rem;
+            color: rgba(14, 165, 233, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.2);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4rem;
+            height: 4rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail:hover .play-button {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--sky-blue));
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: white;
+            border: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            z-index: 10;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+        
+        .filter-btn:not(.active) {
+            background: white;
+            color: var(--primary-blue);
+            border-color: rgba(14, 165, 233, 0.2);
+        }
+        
+        .filter-btn:not(.active):hover {
+            background: var(--blue-50);
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .story-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .story-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-modal.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 4rem 0;
+            }
+            .hero-gradient {
+                background-attachment: scroll;
+            }
+            .impact-number {
+                font-size: 2rem;
+            }
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 nav-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <!-- <div class="flex items-center slide-in-left">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="relative">
+                            <div class="w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-white font-bold text-xl">TiC</span>
+                            </div>
+                            <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl pulse-ring"></div>
+                        </div>
+                        <div class="ml-4">
+                            <span class="text-2xl font-bold gradient-text">Foundation</span>
+                            <div class="text-xs text-gray-500 font-medium">Empowering Young Innovators</div>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <div class="flex flex-shrink-0 p-2 w-fit h-fit  items-center justify-center">
+                    <img src="logo.png" alt="" class="w-50 h-10">
+                    
+                </div>
+
+                <!-- Dsktop Navigation -->
+                <div class="hidden md:block slide-in-right">
+                    <div class="ml-10 flex items-baseline space-x-2">
+                        <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Home</a>
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">About</a>
+                        <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Programs</a>
+                        <a href="success.html" class="nav-link active text-gray-700 hover:text-blue-600 text-sm font-semibold">Success Stories</a>
+                        <a href="blog.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Blog</a>
+                        <a href="events.html" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Events</a>
+                        <a href="#gallery" class="nav-link text-gray-700 hover:text-blue-600 text-sm font-semibold">Gallery</a>
+                    </div>
+                </div>
+                
+                <!-- Support Button -->
+                <div class="flex-shrink-0 hidden md:flex items-center justify-center ml-    4">
+                    <button class="btn-primary text-white px-6 py-3 rounded-full text-sm font-semibold relative z-10">
+                        <i class="fas fa-heart mr-2"></i>
+                        Support Our Cause
+                    </button>
+                </div>
+                
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none p-2 rounded-lg hover:bg-blue-50 transition-all">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu fixed top-20 right-0 w-full h-screen z-40 md:hidden">
+            <div class="px-6 pt-8 pb-6 space-y-6">
+                <a href="index.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">About</a>
+                <a href="programs.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Programs</a>
+                <a href="success.html" class="block text-blue-600 bg-blue-50 text-lg font-semibold py-3 px-4 rounded-lg">Success Stories</a>
+                <a href="blog.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Blog</a>
+                <a href="events.html" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Events</a>
+                <a href="#gallery" class="block text-gray-700 hover:text-blue-600 text-lg font-semibold py-3 px-4 rounded-lg hover:bg-blue-50 transition-all">Gallery</a>
+                <button class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold w-full mt-6 relative z-10">
+                    <i class="fas fa-heart mr-2"></i>
+                    Support Our Cause
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="stories" class="hero-gradient pt-32 pb-20 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 right-20 w-72 h-72 bg-white/10 rounded-full floating-animation"></div>
+            <div class="absolute bottom-20 left-20 w-96 h-96 bg-white/5 rounded-full floating-delayed"></div>
+            <div class="absolute top-1/2 left-1/4 w-4 h-4 bg-white/30 rounded-full floating-animation"></div>
+            <div class="absolute top-1/3 right-1/3 w-6 h-6 bg-white/20 rounded-full floating-delayed"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center text-white">
+                <div class="mb-6 fade-in-up">
+                    <span class="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold">
+                        🌟 Real Impact, Real Stories
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 fade-in-up stagger-1">
+                    Success
+                    <span class="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                        Stories
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed fade-in-up stagger-2 max-w-4xl mx-auto">
+                    Discover how our programs have transformed lives, launched careers, and created lasting positive change in communities across the globe.
+                </p>
+                
+                <!-- Impact Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto fade-in-up stagger-3">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2">1000+</div>
+                        <div class="text-blue-100 text-sm">Lives Transformed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2">XAF 5M+</div>
+                        <div class="text-blue-100 text-sm">Total Earnings</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2">150+</div>
+                        <div class="text-blue-100 text-sm">Startups Launched</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold mb-2">95%</div>
+                        <div class="text-blue-100 text-sm">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave divider -->
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Story Filters -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up">Filter Success Stories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto fade-in-up stagger-1">
+                    Explore stories by program type to see how different paths lead to extraordinary outcomes.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 fade-in-up stagger-2">
+                <button class="filter-btn active" data-filter="all">All Stories</button>
+                <button class="filter-btn" data-filter="coding">Coding</button>
+                <button class="filter-btn" data-filter="entrepreneurship">Entrepreneurship</button>
+                <button class="filter-btn" data-filter="leadership">Leadership</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Success Stories -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 to-sky-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 fade-in-up">
+                    Featured Stories
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 fade-in-up stagger-1">
+                    Inspiring
+                    <span class="gradient-text">Journeys</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="stories-grid">
+                
+                <!-- Story 1: Sarah Chen -->
+                <div class="story-card glass-card rounded-3xl p-8 fade-in-up" data-category="coding" data-story="Mark">
+                    <div class="story-badge">2021 Graduate</div>
+                    <div class="story-avatar rounded-full">NKM</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Nyaba King Mark</h3>
+                    <p class="text-blue-600 font-semibold mb-4">Full-Stack Developer</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        The TIC Summit was the best experience I have ever had in my life. I enjoyed every part of it ranging from
+                         the teaching right till the pitching of our projects. I sincerely loved the tutors and learnt a whole lot of
+                          things both tech wise and socially. Personally it was a super great experience and I intend partaking in 
+                          the next competition and possibly winning.I advise and encourage everyone to take part in the TIC Summit
+                           as it is a great innovative environment for young minds
+                    </p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-6">
+                        <span><i class="fas fa-map-marker-alt mr-1"></i> Younde, Cameroon</span>
+                        <span><i class="fas fa-dollar-sign mr-1"></i> XAF 120k salary</span>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">React</span>
+                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-semibold">Node.js</span>
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-xs font-semibold">Python</span>
+                    </div>
+                    
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-book-open mr-2"></i>
+                        Read Full Story
+                    </button>
+                </div>
+
+                <!-- Story 2: Fanwi Johnson -->
+                <div class="story-card glass-card rounded-3xl p-8 fade-in-up stagger-1" data-category="entrepreneurship" data-story="Fanwi">
+                    <div class="story-badge">2022 Graduate</div>
+                    <div class="story-avatar rounded-full">FK</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Fanwi Kelsea</h3>
+                    <p class="text-blue-600 font-semibold mb-4">TicSummit Participant/p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        It was an exhilarating and intellectually stimulating experience, filled with
+                         challenges that pushed me beyond my comfort zone. It left me deeply inspired
+                          by the transformative power of technology and innovation, equipping me with
+                           profound insights into creative problem-solving and the endless possibilities
+                            of the digital age. This journey has ignited a renewed sense of purpose and a
+                             burning desire to contribute meaningfully by addressing pressing global issues and 
+                             creating lasting change in the world.
+                    </p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-6">
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Yaounde, Cmaeroon</span>
+                        <span><i class="fas fa-users mr-1"></i>Tech Enthusiast</span>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-semibold">Sustainability</span>
+                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">IoT</span>
+                        <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold">B2B</span>
+                    </div>
+                    
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-book-open mr-2"></i>
+                        Read Full Story
+                    </button>
+                </div>
+
+                <!-- Story 3: Aisha Patel -->
+                <div class="story-card glass-card rounded-3xl p-8 fade-in-up stagger-2" data-category="design" data-story="aisha">
+                    <div class="story-badge">2023 Graduate</div>
+                    <div class="story-avatar rounded-full">AP</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Aisha Patel</h3>
+                    <p class="text-blue-600 font-semibold mb-4">Intern</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I’m called Fondzenyuy Beckline and I am currently a student.
+                         My team was one of the finalists and winner of the Hackathon competition.
+                          We designed a website which connected farmers and consumers directly.
+                           The Tic summit for me was not only a competition but made me learn how
+                            to identify problems in the society and look for their solutions.
+                             I thought it was just a competition, but I also learnt how to express 
+                             myself and speak in public
+                    </p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-6">
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Bemanda, Cameroon</span>
+                        <span><i class="fas fa-dollar-sign mr-1"></i>TechPrenuer</span>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-xs font-semibold">UX Design</span>
+                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-xs font-semibold">Figma</span>
+                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Research</span>
+                    </div>
+                    
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white py-3 rounded-2xl font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-book-open mr-2"></i>
+                        Read Full Story
+                    </button>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 fade-in-up">
+                    Video Testimonials
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 fade-in-up stagger-1">
+                    Hear Their
+                    <span class="gradient-text">Stories</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in-up stagger-2">
+                    Watch our graduates share their transformative journeys in their own words.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="video-thumbnail bg-gradient-to-br from-blue-500 to-purple-600 h-64 fade-in-up">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="font-bold">Mark's Journey</h4>
+                        <p class="text-sm opacity-90">From Struggle to Success</p>
+                    </div>
+                </div>
+                
+                <div class="video-thumbnail bg-gradient-to-br from-green-500 to-teal-600 h-64 fade-in-up stagger-1">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="font-bold">Fanwi's Innovation</h4>
+                        <p class="text-sm opacity-90">Building a Sustainable Future</p>
+                    </div>
+                </div>
+                
+                <div class="video-thumbnail bg-gradient-to-br from-pink-500 to-rose-600 h-64 fade-in-up stagger-2">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="font-bold">Aisha's Design Story</h4>
+                        <p class="text-sm opacity-90">Creating Beautiful Experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- impact tmeline -->
+    <section class="section-padding bg-gradient-to-br from-blue-50 to-sky-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 fade-in-up">
+                    Our Impact Over Time
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 fade-in-up stagger-1">
+                    Growing
+                    <span class="gradient-text">Impact</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-gray-900">2024 - Record Breaking Year</h3>
+                            <span class="bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-semibold">Current</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Over 500 graduates this year with an average salary increase of 300%. 50 new startups launched with combined funding of $5M.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="impact-number">500+</div>
+                                <div class="text-gray-500 text-sm">Graduates</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">50</div>
+                                <div class="text-gray-500 text-sm">Startups</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">XAF 5M+</div>
+                                <div class="text-gray-500 text-sm">Funding</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up stagger-1">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">2023 - Expansion Year</h3>
+                        <p class="text-gray-600 mb-4">
+                            Launched 3 new programs and expanded to 5 new cities. Our alumni network grew to over 1,000 successful graduates.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="impact-number">3</div>
+                                <div class="text-gray-500 text-sm">New Programs</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">5</div>
+                                <div class="text-gray-500 text-sm">New Cities</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">1000+</div>
+                                <div class="text-gray-500 text-sm">Alumni</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up stagger-2">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">2022 - Foundation Growth</h3>
+                        <p class="text-gray-600 mb-4">
+                            Achieved 95% job placement rate and launched our first Innovation Labs. Major partnerships with tech companies established.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="impact-number">95%</div>
+                                <div class="text-gray-500 text-sm">Job Rate</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">10</div>
+                                <div class="text-gray-500 text-sm">Partners</div>
+                            </div>
+                            <div>
+                                <div class="impact-number">300</div>
+                                <div class="text-gray-500 text-sm">Graduates</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="inline-block bg-blue-100 text-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 fade-in-up">
+                    What They Say
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8 fade-in-up stagger-1">
+                    Graduate
+                    <span class="gradient-text">Testimonials</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            MT
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Mbu Tracy</h4>
+                            <p class="text-gray-500 text-sm">Tech Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        "TiC Foundation didn't just teach me to code - they taught me to believe in myself. The mentorship and community support were incredible."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up stagger-1">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            EM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Enanga Mirabel</h4>
+                            <p class="text-gray-500 text-sm">EcoTech student</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        "The Innovation Labs program gave me the tools and confidence to turn my environmental passion into a successful business that's making real impact."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up stagger-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            AP
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Aisha Patel</h4>
+                            <p class="text-gray-500 text-sm">Airbnb Designer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        "The design program opened my eyes to the power of user-centered thinking. Now I'm creating experiences that millions of people use every day."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Modal -->
+    <div id="story-modal" class="story-modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-3xl font-bold text-gray-900" id="modal-name">Success Story</h3>
+                <button id="close-story-modal" class="text-gray-400 hover:text-gray-600 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="modal-story-content">
+                <!-- Story content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="hero-gradient section-padding relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-64 h-64 bg-white/5 rounded-full floating-animation"></div>
+            <div class="absolute bottom-10 left-10 w-80 h-80 bg-white/5 rounded-full floating-delayed"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold mb-8 fade-in-up">
+                    🚀 Your Story Starts Here
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 fade-in-up stagger-1">
+                    Write Your
+                    <span class="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                        Success Story
+                    </span>
+                </h2>
+                <p class="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed fade-in-up stagger-2">
+                    Join thousands of graduates who have transformed their lives through our programs. Your success story could be next.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center fade-in-up stagger-3">
+                    <button class="bg-white text-blue-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center group">
+                        <i class="fas fa-rocket mr-3 group-hover:scale-110 transition-transform"></i>
+                        Start Your Journey
+                    </button>
+                    <button class="border-2 border-white text-white px-10 py-5 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center group">
+                        <i class="fas fa-users mr-3 group-hover:scale-110 transition-transform"></i>
+                        Join Alumni Network
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Enhanced Logo and Description -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-xl">T</span>
+                        </div>
+                        <div class="ml-4">
+                            <span class="text-2xl font-bold">TiC Foundation</span>
+                            <div class="text-sm text-gray-400">Transforming Communities</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+                        Empowering the next generation of innovators and changemakers through technology, entrepreneurship, and community-driven solutions. Together, we're building a brighter future.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300">
+                            <i class="fab fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-sky-500 transition-all duration-300">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-pink-600 transition-all duration-300">
+                            <i class="fab fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-700 transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>About Us</a></li>
+                        <li><a href="#programs" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Programs</a></li>
+                        <li><a href="#stories" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Success Stories</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Events</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i>Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 text-white">Get in Touch</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-envelope text-blue-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Email</div>
+                                <div class="text-sm">info@ticfoundation.org</div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-phone text-green-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Phone</div>
+                                <div class="text-sm">+237 679-664-294</div>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-map-marker-alt text-red-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">Address</div>
+                                <div class="text-sm">TechniPole ENSPY, Yaounde, Cameroon</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-left">
+                        &copy; 2025 TiC Foundation. All rights reserved
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+        
+        // Story filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const storyCards = document.querySelectorAll('.story-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                storyCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Story modal functionality
+        const storyModal = document.getElementById('story-modal');
+        const modalName = document.getElementById('modal-name');
+        const modalContent = document.getElementById('modal-story-content');
+        const closeStoryModal = document.getElementById('close-story-modal');
+        
+        // Story data
+        const storyData = {
+            Mark: {
+                name: "Nyaba King Mark",
+                title: "Full-Stack Developer ",
+                fullStory: `
+                    <div class="space-y-6">
+                        <div class="flex items-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-6">SC</div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900">Sarah Chen</h4>
+                                <p class="text-blue-600 font-semibold text-lg">Full-Stack Developer at Google</p>
+                                <p class="text-gray-500">Yaounde, Cameroon • XAF 120k salary</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prose max-w-none">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Challenge</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                mark was a single father working multiple part-time jobs to make ends meet. With no technical background and limited time for education, the future seemed uncertain. He had always been interested in technology but felt it was out of reach.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Journey</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                When mark discovered TiC Foundation's Coding Bootcamp, He was initially hesitant. The program offered evening classes and childcare support, making it possible for her to attend. Over 12 intensive weeks, He learned HTML, CSS, JavaScript, React, and Node.js.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                The most challenging part wasn't the technical concepts—it was believing He could succeed. His mentor, a senior developer at a tech company, provided not just technical guidance but emotional support and career advice.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Transformation</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                mark's final project was a web application that helped single parents find affordable childcare in their area. The project caught the attention of several employers during the program's demo day. Within two weeks of graduation, he had three job offers.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                He choosed Tic  Foundation not just for the salary, but for their commitment to work-life balance and continued learning. Today, mark leads a team of developers working on accessibility features that help millions of users worldwide.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Impact</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                mark's transformation goes beyond his career. He's now financially stable, owns his home, and has set up college funds for his children. He regularly mentors new students in the TiC Foundation programs and has become a role model for other single parents.
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-blue-500 pl-6 italic text-gray-700 bg-blue-50 p-6 rounded-r-lg">
+                                "TiC Foundation didn't just teach me to code—they taught me that I could achieve anything I set my mind to. The technical skills were just the beginning; the confidence and community I gained were life-changing."
+                            </blockquote>
+                        </div>
+                    </div>
+                `
+            },
+            Fanwi: {
+                name: "Fanwi Kelsea",
+                title: "TicSummit Participant",
+                fullStory: `
+                    <div class="space-y-6">
+                        <div class="flex items-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-6">FK</div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900">Fanwi Kelsea</h4>
+                                <p class="text-blue-600 font-semibold text-lg">Tech Enthusiast</p>
+                                <p class="text-gray-500">Yaounde, Cameroon • Tech</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prose max-w-none">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Vision</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Fanwi had always been passionate about environmental sustainability, but he didn't know how to turn that passion into a viable business. Working as an environmental consultant, he saw firsthand how technology could solve many sustainability challenges, but lacked the entrepreneurial skills to act on his ideas.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Learning</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                The Innovation Labs program at TiC Foundation was exactly what Marcus needed. Over 16 weeks, he learned design thinking, rapid prototyping, business model development, and how to validate ideas with real customers. The program's focus on solving community challenges aligned perfectly with his environmental mission.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Fanwi's breakthrough came when he identified a gap in the market for IoT sensors that help businesses reduce energy waste. Using the lean startup methodology learned in the program, he built a minimum viable product and tested it with local businesses.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Launch</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                EcoTech Solutions was born from Fanwi's final project presentation. The pitch was so compelling that two program mentors became his first investors. Within six months, he had secured his first major client—a manufacturing company that reduced their energy costs by 30% using his sensors.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                The company has since grown to 25 employees and has helped over 200 businesses reduce their environmental impact. They've prevented over 10,000 tons of CO2 emissions and saved clients millions in energy costs.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Future</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Fanwi recently closed a $2M Series A funding round and is expanding to three new cities. But success hasn't changed his mission—he still mentors students in the Innovation Labs program and serves on TiC Foundation's advisory board.
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-green-500 pl-6 italic text-gray-700 bg-green-50 p-6 rounded-r-lg">
+                                "The Innovation Labs program gave me the framework to turn my environmental passion into a scalable business. More importantly, it connected me with a community of entrepreneurs who continue to support and challenge me."
+                            </blockquote>
+                        </div>
+                    </div>
+                `
+            },
+            aisha: {
+                name: "Aisha Patel",
+                title: "Intern",
+                fullStory: `
+                    <div class="space-y-6">
+                        <div class="flex items-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-r from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mr-6">AP</div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900">Aisha Patel</h4>
+                                <p class="text-blue-600 font-semibold text-lg">Intern</p>
+                                <p class="text-gray-500">Yaounde, Cameroon • Tic Foundation Intern</p>
+                            </div>
+                        </div>
+                        
+                        <div class="prose max-w-none">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Creative Spark</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Aisha had always been creative, but her graphic design degree wasn't opening the doors she hoped for. Working at a small print shop, she felt her talents were underutilized and yearned for work that could impact people's daily lives in meaningful ways.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Discovery</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                When Aisha discovered TiC Foundation's Creative Design program, she was intrigued by its focus on user experience and digital product design. The 8-week intensive program promised to bridge the gap between traditional graphic design and modern UX/UI design.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                The program was challenging in the best way. Aisha learned user research methods, information architecture, interaction design, and how to use industry-standard tools like Figma and Adobe XD. But more importantly, she learned to think like a user advocate.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Project</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Aisha's capstone project was redesigning the user experience for a local food bank's volunteer coordination system. Through user interviews and usability testing, she identified pain points and created a solution that increased volunteer sign-ups by 40%.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                The project caught the attention of a UX recruiter who was guest-speaking at the program. This connection led to her first UX role at a fintech startup, where she spent two years honing her skills on complex financial products.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">The Growth</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Aisha's work at the startup earned recognition in the design community. Her case study on simplifying complex financial workflows was featured in several design publications. This visibility led to her current role at Airbnb, where she works on the host experience team.
+                            </p>
+                            
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                At Airbnb, Aisha has led the redesign of key host tools that are used by millions of people worldwide. Her user-centered approach has improved host satisfaction scores and contributed to increased bookings on the platform.
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-pink-500 pl-6 italic text-gray-700 bg-pink-50 p-6 rounded-r-lg">
+                                "The Creative Design program taught me that good design isn't just about making things look beautiful—it's about solving real problems for real people. That mindset shift changed everything for me."
+                            </blockquote>
+                        </div>
+                    </div>
+                `
+            }
+        };
+        
+        // Add click handlers to story cards
+        storyCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const storyId = card.getAttribute('data-story');
+                const story = storyData[storyId];
+                
+                if (story) {
+                    modalName.textContent = story.name;
+                    modalContent.innerHTML = story.fullStory;
+                    storyModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal handlers
+        closeStoryModal.addEventListener('click', () => {
+            storyModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        storyModal.addEventListener('click', (e) => {
+            if (e.target === storyModal) {
+                storyModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Video thumbnail click handlers
+        document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                
+                alert('Video testimonial would play here. not for now ya');
+            });
+        });
+        
+        // smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        //  Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-2xl');
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.classList.remove('shadow-2xl');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.style.animationPlayState = 'running';
+                    }
+                });
+            }, 100);
+        });
+        
+        // button interactions
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Sory card hover effects
+        document.querySelectorAll('.story-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && storyModal.classList.contains('active')) {
+                storyModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Add som\e interactive elements to testimonials
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e69629c0e5d7b3',t:'MTc1NTA3MTA1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
